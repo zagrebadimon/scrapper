@@ -1,0 +1,5 @@
+.idea
+/*.iml
+/*.sqlite
+/*.sqlite-journal
+classes

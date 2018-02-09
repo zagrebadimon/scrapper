@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org">
+<head>
+    <title th:text="${service.name}"></title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    </link>
+</head>
+<body>
+<table  class="table table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Link</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="detail : ${service.details}">
+            <td th:text="${detail.id}">1</td>
+            <td><a th:text="${detail.link}" th:href="@{{link}(link=${detail.link})}">links</a></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
