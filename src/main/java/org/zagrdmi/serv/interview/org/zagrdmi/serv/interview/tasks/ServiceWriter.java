@@ -1,5 +1,7 @@
 package org.zagrdmi.serv.interview.org.zagrdmi.serv.interview.tasks;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.zagrdmi.serv.interview.ServicesRepository;
@@ -14,7 +16,6 @@ public class ServiceWriter implements ItemWriter<Service> {
 
     @Override
     public void write(List<? extends Service> list) throws Exception {
-        System.out.println("Write " + list);
         servicesRepository.save(list);
     }
 }

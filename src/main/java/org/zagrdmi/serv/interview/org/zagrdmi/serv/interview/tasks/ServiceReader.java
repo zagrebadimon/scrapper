@@ -3,25 +3,24 @@ package org.zagrdmi.serv.interview.org.zagrdmi.serv.interview.tasks;
 import org.springframework.batch.item.*;
 import org.zagrdmi.serv.interview.entity.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceReader implements ItemStreamReader<Service> {
 
     private final List<String> companies = new ArrayList<>();
 
     @Override
-    public Service read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+    public synchronized Service read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
 
-        if(companies.size() == 0) {
+        if (companies.size() == 0) {
             return null;
         }
 
         String name = companies.remove(0);
-        if(name == null) {
+        if (name == null) {
             return null;
         }
-
-        System.out.println("ServiceReader:: read");
 
         Service service = new Service();
         service.setCategory("development");
@@ -31,7 +30,7 @@ public class ServiceReader implements ItemStreamReader<Service> {
 
     @Override
     public void open(ExecutionContext executionContext) throws ItemStreamException {
-        System.out.println("INIT READER");
+
         companies.add("Google");
         companies.add("Microsoft");
         companies.add("SpaceX");

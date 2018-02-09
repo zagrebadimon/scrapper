@@ -6,10 +6,11 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
+@Table(name = "services")
 public class Service {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
@@ -42,21 +43,6 @@ public class Service {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Service)) return false;
-        Service services = (Service) o;
-        return Objects.equals(id, services.id) &&
-                Objects.equals(name, services.name) &&
-                Objects.equals(category, services.category);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, category);
     }
 
     public Collection<ServiceInfo> getDetails() {

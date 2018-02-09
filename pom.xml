@@ -19,6 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <hibernate.version>5.1.0.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -44,10 +45,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mvc</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.batch</groupId>
             <artifactId>spring-batch-test</artifactId>
@@ -64,30 +62,27 @@
             <version>v1-rev60-1.23.0</version>
         </dependency>
 
-        <!-- sql lite DB
+        <!-- sql lite DB -->
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
-            <version>LATEST</version>
+            <version>3.21.0.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.zsoltfabok/sqlite-dialect -->
         <dependency>
-            <groupId>net.kemitix</groupId>
+            <groupId>org.hibernate.dialect</groupId>
             <artifactId>sqlite-dialect</artifactId>
-            <version>LATEST</version>
-        </dependency> -->
+            <version>0.1.0</version>
+        </dependency>
 
+        <!--
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>LATEST</version>
             <scope>runtime</scope>
         </dependency>
-
-        <!-- hibernate -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-        </dependency>
+        -->
     </dependencies>
 
 
@@ -99,5 +94,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://scm.umiacs.umd.edu/maven/adapt/content/repositories/releases/</url>
+        </repository>
+    </repositories>
 
 </project>

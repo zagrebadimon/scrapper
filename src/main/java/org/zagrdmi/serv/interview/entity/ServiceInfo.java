@@ -6,13 +6,21 @@ import javax.persistence.*;
 public class ServiceInfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Integer id;
-
+    private String title;
     private String link;
 
     @Column(name = "serviceId")
     private Integer serviceId;
+
+    public ServiceInfo(String title, String link) {
+        this.title = title;
+        this.link = link;
+    }
+
+    public ServiceInfo() {
+    }
 
 
     public String getLink() {
@@ -37,5 +45,13 @@ public class ServiceInfo {
 
     public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
